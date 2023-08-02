@@ -1,0 +1,4 @@
+10:59:56.003315 connect: trying connect() to 192.168.10.100 port 24
+connect: No route to host
+10:59:59.055441 connect: connect to 192.168.10.100 port 24 failed
+./connect 192.168.10.100 24  0.00s user 0.00s system 0% cpu 3.055 total

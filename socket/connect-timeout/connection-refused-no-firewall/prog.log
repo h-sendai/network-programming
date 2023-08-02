@@ -1,0 +1,4 @@
+11:01:48.526429 connect: trying connect() to 192.168.10.200 port 1234
+connect: Connection refused
+11:01:48.527313 connect: connect to 192.168.10.200 port 1234 failed
+./connect 192.168.10.200 1234  0.00s user 0.00s system 67% cpu 0.003 total

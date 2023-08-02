@@ -1,0 +1,4 @@
+0.000000 0.000000 connect: trying connect() to 192.168.10.200 port 1234
+0.000268 0.000268 IP 192.168.10.201.48072 > 192.168.10.200.1234: Flags [S], seq 3938525880, win 29200, options [mss 1460,sackOK,TS val 1658451435 ecr 0,nop,wscale 7], length 0
+0.000535 0.000267 IP 192.168.10.200 > 192.168.10.201: ICMP host 192.168.10.200 unreachable - admin prohibited filter, length 68
+0.000593 0.000058 connect: connect to 192.168.10.200 port 1234 failed

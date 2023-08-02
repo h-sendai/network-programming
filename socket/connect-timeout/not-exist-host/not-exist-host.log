@@ -1,0 +1,8 @@
+0.000000 0.000000 connect: trying connect() to 192.168.10.100 port 24
+0.000206 0.000206 ARP, Request who-has 192.168.10.100 tell 192.168.10.201, length 28
+1.003934 1.003728 ARP, Request who-has 192.168.10.100 tell 192.168.10.201, length 28
+2.027932 1.023998 ARP, Request who-has 192.168.10.100 tell 192.168.10.201, length 28
+3.051977 1.024045 ARP, Request who-has 192.168.10.100 tell 192.168.10.201, length 28
+3.052126 0.000149 connect: connect to 192.168.10.100 port 24 failed
+4.075930 1.023804 ARP, Request who-has 192.168.10.100 tell 192.168.10.201, length 28
+5.099930 1.024000 ARP, Request who-has 192.168.10.100 tell 192.168.10.201, length 28

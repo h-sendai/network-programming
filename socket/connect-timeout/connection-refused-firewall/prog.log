@@ -1,0 +1,4 @@
+13:46:28.394548 connect: trying connect() to 192.168.10.200 port 1234
+connect: connect() in connect_tcp: No route to host
+13:46:28.395141 connect: connect to 192.168.10.200 port 1234 failed
+./connect 192.168.10.200 1234  0.00s user 0.00s system 73% cpu 0.003 total

@@ -1,0 +1,8 @@
+0.000000 0.000000 connect: trying connect() to 192.168.10.200 port 1234
+0.000324 0.000324 ARP, Request who-has 192.168.10.200 tell 192.168.10.201, length 28
+0.000587 0.000263 ARP, Reply 192.168.10.200 is-at 02:01:02:03:04:05, length 46
+0.000602 0.000015 IP 192.168.10.201.39480 > 192.168.10.200.1234: Flags [S], seq 3230712780, win 29200, options [mss 1460,sackOK,TS val 1648571567 ecr 0,nop,wscale 7], length 0
+0.000834 0.000232 IP 192.168.10.200.1234 > 192.168.10.201.39480: Flags [R.], seq 0, ack 3230712781, win 0, length 0
+0.000884 0.000050 connect: connect to 192.168.10.200 port 1234 failed
+5.203146 5.202262 ARP, Request who-has 192.168.10.201 tell 192.168.10.200, length 46
+5.203169 0.000023 ARP, Reply 192.168.10.201 is-at 02:09:08:07:06:05, length 28
