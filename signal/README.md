@@ -43,3 +43,5 @@ DESCRIPTION
                void     (*sa_restorer)(void);
            };
 ```
+
+[man 7 signal (overview of signals)](https://man7.org/linux/man-pages/man7/signal.7.html)
