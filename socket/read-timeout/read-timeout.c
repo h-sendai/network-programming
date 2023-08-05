@@ -16,6 +16,7 @@
 #include "logUtil.h"
 #include "timespecop.h"
 #include "log_et.h"
+#include "set_timer.h"
 
 int random_sleep(int sec)
 {
@@ -36,15 +37,41 @@ int random_sleep(int sec)
 
 int main(int argc, char *argv[])
 {
-    if (argc != 4) {
-        char msg[] = "Usage: connect-timeout remote port read_timeout_sec";
+    int debug  = 0;
+    int n_loop = 10;
+
+    int c;
+    while ( (c = getopt(argc, argv, "dn:")) != -1) {
+        switch (c) {
+            case 'd':
+                debug = 1;
+                break;
+            case 'n':
+                n_loop = strtol(optarg, NULL, 0);
+                break;
+            default:
+                break;
+        }
+    }
+    argc -= optind;
+    argv += optind;
+
+    if (argc != 3) {
+        char msg[] = "Usage: connect-timeout [-d (debug)] [-n n_loop] remote port read_timeout_sec\n"
+                     "read_timeout_sec may be decimal point number\n";
         fprintf(stderr, "%s\n", msg);
         exit(1);
     }
 
-    char *remote          = argv[1];
-    int  port             = strtol(argv[2], NULL, 0);
-    int  read_timeout_sec = strtol(argv[3], NULL, 0);
+    char *remote          = argv[0];
+    int  port             = strtol(argv[1], NULL, 0);
+    struct timeval read_timeout;
+    conv_str2timeval(argv[2], &read_timeout);
+
+    if (debug) {
+        fprintf(stderr, "read_timeout.tv_sec: %ld, read_timeout.tv_usec: %ld\n",
+            read_timeout.tv_sec, read_timeout.tv_usec);
+    }
 
     prctl(PR_SET_TIMERSLACK, 1);
     int sockfd = tcp_socket();
@@ -53,14 +80,14 @@ int main(int argc, char *argv[])
         errx(1, "connect_tcp");
     }
 
-    if (set_so_rcvtimeout(sockfd, read_timeout_sec, 0) < 0) {
+    if (set_so_rcvtimeout(sockfd, read_timeout.tv_sec, read_timeout.tv_usec) < 0) {
         errx(1, "set_so_rcvtimeout");
     }
 
     set_start_tv();
     log_et(stderr, "program start\n");
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < n_loop; ++i) {
         char buf[1024];
         int n = read(sockfd, buf, sizeof(buf));
         if (n < 0) {
